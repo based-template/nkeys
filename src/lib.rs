@@ -207,7 +207,8 @@ impl KeyPair {
             let signer = Ed25519Signer::from(seed);
             //let sig = signatory::ed25519::sign(&signer, input)?;
             let sig = signer.sign(input);
-            Ok(sig.as_slice().to_vec())
+            //Ok(sig.as_slice().to_vec())
+            Ok(sig.as_ref().to_vec())
         } else {
             Err(err!(SignatureError, "Cannot sign without a seed key"))
         }
